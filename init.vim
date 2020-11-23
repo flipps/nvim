@@ -16,8 +16,7 @@ nnoremap <c-f> :Ag<space>
 nnoremap <leader>sv :source $NVIM_INIT<cr>
 
 call plug#begin()
-Plug 'dracula/vim', { 'name': 'dracula' }
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzfm', 'do': './install --all' }
@@ -29,10 +28,10 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
-colorscheme dracula
-"light scheme
-"colorscheme PaperColor
-"set background=light
+colorscheme nord
+set background=dark
+
+highlight Visual cterm=reverse ctermbg=NONE
 
 nnoremap <silent> <C-B> :NERDTreeToggle<CR>
 
@@ -40,3 +39,20 @@ augroup nerdtree_open
     autocmd!
     autocmd VimEnter * NERDTree | wincmd p
 augroup END
+
+" coc config
+let g:coc_global_extensions = [
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-tsserver',
+  \ 'coc-eslint', 
+  \ 'coc-prettier', 
+  \ 'coc-json', 
+  \ ]
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
