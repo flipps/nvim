@@ -1,10 +1,10 @@
 set hidden
 set number
-set relativenumber
+set relativenumber 
 set mouse=a
 set inccommand=split
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+set tabstop=2 softtabstop=2
+set shiftwidth=2
 set smartindent
 set noswapfile
 set incsearch
@@ -17,6 +17,7 @@ nnoremap <leader>sv :source $NVIM_INIT<cr>
 
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzfm', 'do': './install --all' }
@@ -28,10 +29,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree'
 call plug#end()
 
-colorscheme nord
+colorscheme gruvbox
 set background=dark
-
-highlight Visual cterm=reverse ctermbg=NONE
 
 nnoremap <silent> <C-B> :NERDTreeToggle<CR>
 
@@ -50,9 +49,21 @@ let g:coc_global_extensions = [
   \ 'coc-json', 
   \ ]
 
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
 
