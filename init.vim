@@ -30,6 +30,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jeetsukumaran/vim-buffergator'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
 colorscheme gruvbox
