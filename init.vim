@@ -9,11 +9,10 @@ set smartindent
 set noswapfile
 set incsearch
 set colorcolumn=80
+set showtabline=2
 
-let mapleader="\<space>"
 nnoremap <c-p> :Files<cr>
 nnoremap <c-f> :Ag<space>
-nnoremap <leader>sv :source $NVIM_INIT<cr>
 
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
@@ -28,12 +27,17 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'scrooloose/nerdtree'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'jeetsukumaran/vim-buffergator'
 call plug#end()
 
 colorscheme gruvbox
 set background=dark
 
 nnoremap <silent> <C-B> :NERDTreeToggle<CR>
+nnoremap <Leader>> <C-w>15><CR>
+nnoremap <Leader>< <C-w>15<<CR>
 
 augroup nerdtree_open
     autocmd!
@@ -68,3 +72,20 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
