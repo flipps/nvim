@@ -10,6 +10,7 @@ set noswapfile
 set incsearch
 set colorcolumn=80
 set showtabline=2
+set cursorline
 
 nnoremap <c-p> :Files<cr>
 nnoremap <c-f> :Ag<space>
@@ -17,6 +18,7 @@ nnoremap <c-f> :Ag<space>
 call plug#begin()
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzfm', 'do': './install --all' }
@@ -33,8 +35,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 call plug#end()
 
-colorscheme gruvbox
-set background=dark
+colorscheme onedark
 
 nnoremap <silent> <C-B> :NERDTreeToggle<CR>
 nnoremap <Leader>> <C-w>15><CR>
@@ -81,7 +82,7 @@ let g:lightline = {
       \ },
       \ 'tabline': {
       \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
+      \   'right': [ [''] ]
       \ },
       \ 'component_expand': {
       \   'buffers': 'lightline#bufferline#buffers'
