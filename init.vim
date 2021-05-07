@@ -11,6 +11,7 @@ set incsearch
 set colorcolumn=80
 set showtabline=2
 set cursorline
+set hlsearch
 
 nnoremap <c-p> :Files<cr>
 nnoremap <c-f> :Ag<space>
@@ -33,6 +34,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 colorscheme onedark
@@ -91,3 +93,17 @@ let g:lightline = {
       \   'buffers': 'tabsel'
       \ }
       \ }
+
+" Mapping for insearch plug
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
