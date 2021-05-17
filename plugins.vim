@@ -22,7 +22,6 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
-colorscheme onedark
 
 nnoremap <silent> <C-B> :NERDTreeToggle<CR>
 nnoremap <Leader>> <C-w>15><CR>
