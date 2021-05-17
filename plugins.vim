@@ -1,6 +1,4 @@
 call plug#begin()
-Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'junegunn/fzf', { 'dir': '~/.fzfm', 'do': './install --all' }
@@ -21,7 +19,6 @@ augroup nerdtree_open
     autocmd!
     autocmd VimEnter * NERDTree | wincmd p
 augroup END
-
 
 " Lightline
 let g:lightline = {
