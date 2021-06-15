@@ -13,6 +13,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 call plug#end()
 
 augroup nerdtree_open
